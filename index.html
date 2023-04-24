@@ -3,7 +3,7 @@
     <meta charset="utf-8" />
   </head>
   <body>
-    <select class="select_search" multiple="multiple" data-placeholder="野菜">
+    <select class="select_search" data-placeholder="野菜">
       <option value="1">にんじん</option>
       <option value="2">ジャガイモ</option>
       <option value="3">たまねぎ</option>
@@ -19,23 +19,30 @@
     type="text/javascript"
     src="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.8.7/chosen.jquery.min.js"
   ></script>
+  <script src="
+  https://cdn.jsdelivr.net/npm/jquery.searchable@1.1.0/jquery.searchable.min.js
+  "></script>
+  <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+
   <script type="text/javascript" async>
-    $(function () {
-      $('.select_search').chosen({
-        search_contains: true,
-        width: '200px',
-        no_results_text: 'ありません',
-        maxMultiMatch: 50,
-        exactMatch: false,
-        ignoreCase: true,
-        latency: 200,
-      });
-      $('.select_search').change(function () {
-        var txt = $('.select_search option:selected').text();
-        console.log(txt);
-      });
+    $('.select_search').chosen({
+      search_contains: true,
+      width: '200px',
+      no_results_text: 'ありません',
+      maxMultiMatch: 50,
+      exactMatch: false,
+      ignoreCase: true,
+      latency: 200,
     });
+    function onSelect1() {
+      $('.select_search').parent().show();
+      console.log(1);
+    }
+    $('.select_search').change(function () {
+      var txt = $('.select_search option:selected').text();
+    });
+    $('.result-selected').hide();
   </script>
 </html>
-https://stackoverflow.com/questions/51195973/javascript-function-not-working-with-chosen-plugin
-https://www.shookuro.com/entry/2018/05/27/165119
+<!-- https://stackoverflow.com/questions/51195973/javascript-function-not-working-with-chosen-plugin -->
+<!-- https://www.shookuro.com/entry/2018/05/27/165119 -->
